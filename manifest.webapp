@@ -1,0 +1,14 @@
+{
+  "version": "0.1",
+  "name": "SpaceX Rocket",
+  "description": "An awesome rocket space game app",
+  "launch_path": "/spacex",
+  "icons": {
+    "128": "/sxrimg/icon-128.png"
+  },
+  "developer": {
+    "name": "The ART Studioss",
+    "url": "http://www.theartstudioss.com"
+  },
+  "installs_allowed_from": ["*"]
+}
