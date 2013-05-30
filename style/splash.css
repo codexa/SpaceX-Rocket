@@ -1,0 +1,23 @@
+#splash-screen {
+  text-align: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: all 1s ease;
+  background: #1F1F1F;
+  visibility: collapse;
+}
+
+#splash-logo {
+  max-width: 100%;
+  width: 250px;
+  position: relative;
+  top: calc(50% - 100px / 2);
+}
+
+@keyframes splash {
+  0% { opacity: 0; visibility: visible; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
