@@ -1,8 +1,16 @@
 html, body {
-  background: #1F1F1F;
+  background: black;
   color: white;
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
+}
+
+#game {
+  height: 100%;
+  width: 100%;
+  background: url(../images/space1.png);
+  opacity: 0;
+  transition: opacity 1s;
 }

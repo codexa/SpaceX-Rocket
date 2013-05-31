@@ -7,6 +7,23 @@
   <link rel="stylesheet" type="text/css" href="style/main.css"/>
   <link rel="stylesheet" type="text/css" href="style/splash.css"/>
   
+  <!-- Shaders -->
+  <script id="shader-fs" type="x-shader/x-fragment">
+    void main(void) {
+      gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    }
+  </script>
+  <script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+ 
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+   
+    void main(void) {
+      gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+    }
+  </script>
+  
   <!-- Scripts -->  
   <script type="application/javascript" src="js/main.js"></script>
   
@@ -15,5 +32,6 @@
   <div id="splash-screen">
     <img src="images/codexa.png" id="splash-logo" />
   </div>
+  <canvas id="game"></canvas>
 </body>
 </html>
