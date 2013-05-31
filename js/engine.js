@@ -26,7 +26,7 @@ var Game = window.Game = {
 		fps: 0,
 		startTime: 0,
 		time: 0,
-		canvas: null,
+		canvas: gameCanvas,
 		ctx: null,
 		canvasOffset: { x: 0, y: 0 }
 	},
