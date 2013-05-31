@@ -10,7 +10,7 @@ html, body {
 #game {
   height: 100%;
   width: 100%;
-  background: url(../images/space1.png);
+  background: url(../images/space.png);
   opacity: 0;
   transition: opacity 1s;
 }

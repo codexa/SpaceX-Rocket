@@ -1,6 +1,7 @@
 /* Globals
 --------------------*/
 var audioContext, audioEnabled;
+var backgroundSoft;
 
 /* Initialize
 --------------------*/
@@ -9,6 +10,7 @@ window.addEventListener('DOMContentLoaded', function() { init(); });
 function init() {
   // Set up audio
   initAudio();
+  loadAudio();
   
   // Splash screen
   splash();
@@ -29,6 +31,11 @@ function initAudio() {
   }
 }
 
+function loadAudio() {
+  // Soft
+  getSound('sounds/soft.ogg', function (sound) { backgroundSoft = sound; });
+}
+
 function initGame() {
   var canvas = document.getElementById("game");
  
@@ -46,8 +53,9 @@ function initGame() {
   }
   
   setTimeout(function () {
+    playSound(backgroundSoft, 0, true);
     document.getElementById('game').style.opacity = '1';
-    //drawScene(start);
+    // drawScene(start);
   }, 8000);
 }
 
@@ -107,28 +115,38 @@ function initBuffers() {
 /* Splash
 --------------------*/
 function splash() {
+  if (audioEnabled == true) { 
+    getSound('sounds/splash.ogg', function (sound) { playSound(sound); });
+  }
+  document.getElementById('splash-screen').style.animation = 'splash 8s';
+}
+
+/* Audio
+--------------------*/
+function getSound(path, callback) {
   if (audioEnabled == true) {
     var sound = new XMLHttpRequest();
-    sound.open('GET', 'sounds/splash.ogg', true);
+    sound.open('GET', path, true);
     sound.responseType = 'arraybuffer';
  
     // Decode asynchronously
     sound.onload = function() {
       audioContext.decodeAudioData(sound.response, function(buffer) {
-        playSound(buffer);
+        callback(buffer);
       });
     }
     sound.send();
-  }
-  document.getElementById('splash-screen').style.animation = 'splash 8s';
+  } 
 }
 
-// Sounds
-function playSound(buffer) {
-  var source = audioContext.createBufferSource(); // creates a sound source
-  source.buffer = buffer;                    // tell the source which sound to play
-  source.connect(audioContext.destination);       // connect the source to the context's destination (the speakers)
-  source.start(0);                           // play the source now
+function playSound(buffer, start, loop) {
+  var source = audioContext.createBufferSource();
+  source.buffer = buffer;
+  source.connect(audioContext.destination);
+  source.start(start);
+  if (loop == true) {
+    source.loop = true;
+  }
 }
 
 /* Shaders
