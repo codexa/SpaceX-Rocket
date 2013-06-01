@@ -116,7 +116,7 @@ function initBuffers() {
 --------------------*/
 function splash() {
   if (audioEnabled == true) { 
-    getSound('sounds/splash.ogg', function (sound) { playSound(sound); });
+    getSound('sounds/splash.ogg', function (sound) { playSound(sound, .8); });
   }
   document.getElementById('splash-screen').style.animation = 'splash 8s';
 }

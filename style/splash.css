@@ -6,6 +6,7 @@
   transition: all 1s ease;
   background: #1F1F1F;
   visibility: collapse;
+  opacity: 0;
 }
 
 #splash-logo {
@@ -16,8 +17,8 @@
 }
 
 @keyframes splash {
-  0% { opacity: 0; visibility: visible; }
-  15% { opacity: 1; }
+  10% { opacity: 0; visibility: visible; }
+  25% { opacity: 1; }
   85% { opacity: 1; }
   100% { opacity: 0; }
 }
