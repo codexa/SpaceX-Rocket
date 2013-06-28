@@ -107,24 +107,27 @@ function startGame() {
   
   // Key functions
   document.addEventListener('keydown', function(event) {
-    if (event.keyCode == 37) {
-      gameContext.clearRect(rocketX, rocketY, 50, 258);
-      rocketX = (rocketX - 10);
-      drawRocket(rocketX, rocketY);
-    } else if (event.keyCode == 38) {
-      gameContext.clearRect(rocketX, rocketY, 50, 258);
-      rocketY = (rocketY - 10);
-      drawRocket(rocketX, rocketY);
-    } else if (event.keyCode == 39) {
-      gameContext.clearRect(rocketX, rocketY, 50, 258);
-      rocketX = (rocketX + 10);
-      drawRocket(rocketX, rocketY);
-    } else if (event.keyCode == 40) {
-      gameContext.clearRect(rocketX, rocketY, 50, 258);
-      rocketY = (rocketY + 10);
-      drawRocket(rocketX, rocketY);
+    if (event.keyCode == 37 | event.keyCode == 65) {
+      moveRocket('left', 10);
+    } else if (event.keyCode == 39 | event.keyCode == 68) {
+      moveRocket('right', 10);
     }
   });
+}
+
+function moveRocket(direction, amount) {
+  if (amount > 0) {
+    gameContext.clearRect(rocketX, rocketY, 50, 258);
+    if (direction == 'left') {
+      rocketX = (rocketX - 4);
+      drawRocket(rocketX, rocketY);
+      setTimeout(function() { moveRocket(direction, (amount - 1)); }, 1);
+    } else if (direction == 'right') {
+      rocketX = (rocketX + 4);
+      drawRocket(rocketX, rocketY);
+      setTimeout(function() { moveRocket(direction, (amount - 1)); }, 1);
+    }
+  }
 }
 
 function drawRocket(x, y) {
