@@ -1,10 +1,12 @@
 {
   "version": "0.1",
-  "name": "SpaceX Rocket",
+  "name": "SpaceXRocket",
   "description": "An awesome rocket space game app",
   "launch_path": "/index.html",
   "icons": {
-    "128": "/sxrimg/icon-128.png"
+    "64": "/sxrimg/ic/appic_64.png",
+    "128": "/sxrimg/ic/appic_128.png",
+    "256": "/sxrimg/ic/appic_256.png"
   },
   "developer": {
     "name": "Codexa",

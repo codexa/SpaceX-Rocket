@@ -7,9 +7,9 @@ var rocketX = 512, rocketY = 588;
 /* Load Images
 --------------------*/
 var rocket = new Image();
-rocket.src = 'images/rocket.png';
+rocket.src = 'sxrimg/rocket.png';
 var flame = new Image();
-flame.src = 'images/flame.png';
+flame.src = 'sxrimg/flame.png';
 
 
 /* Initialize

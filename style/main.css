@@ -9,7 +9,7 @@ html, body {
 }
 
 #game {
-  background: url(../images/space.png);
+  background: url(../sxrimg/space.png);
   opacity: 0;
   transition: opacity 1s;
   margin: 0 auto;
